@@ -4,7 +4,7 @@
   background-color: rgb(212, 206, 206);
   border-radius: 10px;
   border: 1px solid black;
-  position: relative;
+  margin-top: 10px;
 }
 
 .light {
@@ -12,21 +12,53 @@
   height: 60px;
   border-radius: 50%;
   border: 1px solid black;
+}
+
+.position {
+  position: relative;
+}
+
+.position > * {
   position: absolute;
   left: 19px;
 }
 
+.position > *.red {
+  top: 10px;
+}
+
+.position > *.yellow {
+  top: 90px;
+}
+
+.position > *.green {
+  top: 170px;
+}
+
+.transform {
+  transform: translate(120px, -252px);
+}
+
+.transform > *.red {
+  transform: translate(19px, 10px);
+}
+
+.transform > *.yellow {
+  transform: translate(19px, 30px);
+}
+
+.transform > *.green {
+  transform: translate(19px, 45px);
+}
+
 .red {
   background-color: red;
-  top: 10px;
 }
 
 .yellow {
   background-color: yellow;
-  top: 90px;
 }
 
 .green {
   background-color: green;
-  top: 170px;
 }
