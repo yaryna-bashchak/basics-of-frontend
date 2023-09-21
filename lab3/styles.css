@@ -2,7 +2,9 @@ body {
   font: 40px Arial;
   font-weight: bold;
   color: aliceblue;
-  margin: 0px;
+  margin: 0px auto;
+  max-width: 1300px;
+  background-color: rgb(180,172,168);
 }
 
 .container {
