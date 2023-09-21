@@ -31,3 +31,21 @@ img {
   background-color: rgb(173, 228, 246);
 }
 
+#container2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.flex-text-container {
+  width: 100%;
+  display: flex;
+}
+
+#text1-float {
+  float: left;
+}
+
+#text2-float {
+  float: right;
+}
