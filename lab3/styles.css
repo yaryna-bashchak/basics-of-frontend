@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  background-color: rgb(173, 228, 246);
+  background-color: rgb(91,126,148);
 }
 
 img {
@@ -24,11 +24,11 @@ img {
 }
 
 .text1 {
-  background-color: rgb(145, 145, 251);
+  background-color: rgb(54,79,77);
 }
 
 .text2 {
-  background-color: rgb(173, 228, 246);
+  background-color: rgb(91,126,148);
 }
 
 #text1-float {
