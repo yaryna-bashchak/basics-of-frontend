@@ -3,6 +3,19 @@ const variant = 1
 let counter = 1
 
 const table = document.getElementById('table')
+const myCell = document.getElementById(variant)
+const colorPicker = document.getElementById('color-picker')
+let selectedColor = 'rgb(78, 79, 254)'
+
+const getRandomColor = () =>
+  '#' + Math.floor(Math.random() * 16777215).toString(16)
+
+const changeColor = (cell, color = null) => {
+  if (color === null) {
+    color = getRandomColor()
+  }
+  cell.style.backgroundColor = color
+}
 
 for (let i = 0; i < squareSize; i++) {
   const row = document.createElement('tr')
@@ -14,3 +27,16 @@ for (let i = 0; i < squareSize; i++) {
   }
   table.appendChild(row)
 }
+
+myCell.addEventListener('mouseover', () => changeColor(myCell))
+myCell.addEventListener('click', () => changeColor(myCell, selectedColor))
+myCell.addEventListener('dblclick', () => {
+  const row = myCell.parentNode
+  for (cell of row.cells) {
+    changeColor(cell, selectedColor)
+  }
+})
+
+colorPicker.addEventListener('input', () => {
+  selectedColor = colorPicker.value
+})
