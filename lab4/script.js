@@ -1,4 +1,7 @@
-let imageContainer
+const firstElement = document.getElementById('first-element')
+const secondElement = document.querySelector('#second-element')
+const imageContainer = document.getElementById('image-container')
+
 
 const getRandomColor = () =>
   '#' + Math.floor(Math.random() * 16777215).toString(16)
@@ -6,9 +9,9 @@ const getRandomColor = () =>
 const getContrastingColor = (hexColor) => {
   hexColor = hexColor.replace('#', '')
 
-  let r = parseInt(hexColor.substring(0, 2), 16) // Red
-  let g = parseInt(hexColor.substring(2, 4), 16) // Green
-  let b = parseInt(hexColor.substring(4, 6), 16) // Blue
+  let r = parseInt(hexColor.substring(0, 2), 16)
+  let g = parseInt(hexColor.substring(2, 4), 16)
+  let b = parseInt(hexColor.substring(4, 6), 16)
 
   let yiq = (r * 299 + g * 587 + b * 114) / 1000
 
@@ -21,14 +24,8 @@ const changeColor = element => () => {
   element.style.color = getContrastingColor(newBackgroundColor)
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const firstElement = document.getElementById('first-element')
-  const secondElement = document.querySelector('#second-element')
-  imageContainer = document.getElementById('image-container')
-
-  firstElement.onclick = changeColor(firstElement)
-  secondElement.onclick = changeColor(secondElement)
-})
+firstElement.onclick = changeColor(firstElement)
+secondElement.onclick = changeColor(secondElement)
 
 const addImage = () => {
   const img = document.createElement('img')
