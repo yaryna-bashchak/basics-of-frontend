@@ -2,7 +2,6 @@ const firstElement = document.getElementById('first-element')
 const secondElement = document.querySelector('#second-element')
 const imageContainer = document.getElementById('image-container')
 
-
 const getRandomColor = () =>
   '#' + Math.floor(Math.random() * 16777215).toString(16)
 
@@ -37,17 +36,13 @@ const addImage = () => {
 
 const enlargeImage = () => {
   const img = document.querySelector('img:last-of-type')
-  const currentWidth = parseFloat(
-    window.getComputedStyle(img, null).getPropertyValue('width')
-  )
+  const currentWidth = img.width
   img.style.width = currentWidth * 1.1 + 'px'
 }
 
 const shrinkImage = () => {
   const img = document.querySelector('img:last-of-type')
-  const currentWidth = parseFloat(
-    window.getComputedStyle(img, null).getPropertyValue('width')
-  )
+  const currentWidth = img.width
   img.style.width = currentWidth * 0.9 + 'px'
 }
 
