@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="лабороторна робота, КПІ, Front-end">
+    <meta name="description" content="Сторінка для виконання лабораторної роботи №5">
+    <link rel="stylesheet" type="text/css" href="form/style.css">
+    <link rel="stylesheet" type="text/css" href="table/style.css">
+    <title>Бащак Я.В. ІМ-11, лаб. №5, варіант 1</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">
+        <form id="myForm">
+            <p id="form-title">Будь ласка, заповніть форму</p>
+
+            <input placeholder="ПІБ" type="text" id="name" name="name"><br>
+            <p id="name-tip" class="tip">Формат: Прізвище І.П.</p>
+
+            <input placeholder="Варіант" type="number" id="variant" name="variant"><br>
+            <p id="variant-tip" class="tip">Формат: Ч або ЧЧ</p>
+
+            <input placeholder="Група" type="text" id="group" name="group"><br>
+            <p id="group-tip" class="tip">Формат: ТТ-ЧЧ</p>
+
+            <input placeholder="Телефон" type="text" id="phone" name="phone"><br>
+            <p id="phone-tip" class="tip">Формат: (ЧЧЧ)-ЧЧЧ-ЧЧ-ЧЧ</p>
+
+            <input placeholder="ID-card" type="text" id="id-card" name="id-card"><br>
+            <p id="id-card-tip" class="tip">Формат: ТТ №ЧЧЧЧЧЧ</p>
+
+            <input type="button" value="Відправити" onclick="validateForm()">
+        </form>
+
+        <div id="table-wrapper">
+            <input type="color" id="color-picker" value="#4E4FFF">
+            <table id="table"></table>
+        </div>
+    </div>
+
+    <script src="form/script.js"></script>
+    <script src="table/script.js"></script>
+</body>
+
+</html>
