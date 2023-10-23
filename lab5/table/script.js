@@ -1,9 +1,7 @@
 const squareSize = 6
 const variant = 1
-let counter = 1
 
 const table = document.getElementById('table')
-const myCell = document.getElementById(variant)
 const colorPicker = document.getElementById('color-picker')
 let selectedColor = 'rgb(78, 79, 254)'
 
@@ -27,6 +25,8 @@ for (let i = 0; i < squareSize; i++) {
   }
   table.appendChild(row)
 }
+
+const myCell = document.getElementById(variant)
 
 myCell.addEventListener('mouseover', () => changeColor(myCell))
 myCell.addEventListener('click', () => changeColor(myCell, selectedColor))

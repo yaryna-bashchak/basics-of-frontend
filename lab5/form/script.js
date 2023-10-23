@@ -16,17 +16,12 @@ const removeError = id => {
 }
 
 function validateForm () {
-  const inputs = {
-    name: document.getElementById('name').value,
-    variant: document.getElementById('variant').value,
-    group: document.getElementById('group').value,
-    phone: document.getElementById('phone').value,
-    'id-card': document.getElementById('id-card').value
-  }
-
-  let errors = []
+  const inputs = {}
+  const errors = []
 
   fields.forEach(id => {
+    inputs[id] = document.getElementById(id).value
+
     removeError(id)
 
     if (!regex[id].test(inputs[id])) {
@@ -40,8 +35,10 @@ function validateForm () {
       document.getElementById(`${id}-tip`).classList.add('error')
     })
   } else {
-    alert(
-      `ПІБ: ${inputs['name']}\nВаріант: ${inputs['variant']}\nГрупа: ${inputs['group']}\nТелефон: ${inputs['phone']}\nID-card: ${inputs['id-card']}`
-    )
+    setTimeout(() => {
+      alert(
+        `ПІБ: ${inputs['name']}\nВаріант: ${inputs['variant']}\nГрупа: ${inputs['group']}\nТелефон: ${inputs['phone']}\nID-card: ${inputs['id-card']}`
+      )
+    }, 0)
   }
 }
