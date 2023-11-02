@@ -1,10 +1,10 @@
 function fetchUserData() {
-  fetch('https://randomuser.me/api/?results=3')
+  fetch('https://randomuser.me/api/')
     .then(response => {
       if (response.ok) return response.json();
       throw new Error('Request failed.');
     })
-    .then(data => data.results.forEach(updateUserInformation))
+    .then(data => updateUserInformation(data.results[0]))
     .catch(error => {
       console.error('There was problem with fetch operation:', error);
     });
@@ -18,8 +18,6 @@ function updateUserInformation(user) {
     postcode: user.location.postcode,
     picture: user.picture.large
   };
-  const userName = `${user.name.first} ${user.name.last}`;
-  const userPicture = user.picture.large;
 
   const userDiv = document.createElement('div');
   userDiv.className = 'user';
