@@ -31,4 +31,4 @@ function updateUserInformation(user) {
   document.getElementById('userContainer').appendChild(userDiv);
 }
 
-document.getElementById('updateUsers').addEventListener('click', fetchUserData);
+document.getElementById('updateUser').addEventListener('click', fetchUserData);
