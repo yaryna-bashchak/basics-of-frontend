@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/basics-of-frontend/lab7/task1/static/css/main.6b96c1f9.css",
+    "main.js": "/basics-of-frontend/lab7/task1/static/js/main.cf3e1bb1.js",
+    "index.html": "/basics-of-frontend/lab7/task1/index.html",
+    "main.6b96c1f9.css.map": "/basics-of-frontend/lab7/task1/static/css/main.6b96c1f9.css.map",
+    "main.cf3e1bb1.js.map": "/basics-of-frontend/lab7/task1/static/js/main.cf3e1bb1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b96c1f9.css",
+    "static/js/main.cf3e1bb1.js"
+  ]
+}
