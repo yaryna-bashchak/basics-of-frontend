@@ -2,14 +2,77 @@ import React from 'react'
 import Image from './Image'
 
 class Content extends React.Component {
+  state = {
+    firstElement: {
+      backgroundColor: '#FFFFFF',
+      color: '#000000'
+    },
+    secondElement: {
+      backgroundColor: '#FFFFFF',
+      color: '#000000'
+    }
+  }
+
+  //   addImage = () => {
+  //     const imageContainer = document.getElementById('image-container')
+  //     imageContainer.appendChild(<Image />)
+  //   }
+
+  //   enlargeImage = () => {
+  //     const img = document.querySelector('img:last-of-type')
+  //     const currentWidth = img.width
+  //     img.style.width = currentWidth * 1.1 + 'px'
+  //   }
+
+  //   shrinkImage = () => {
+  //     const img = document.querySelector('img:last-of-type')
+  //     const currentWidth = img.width
+  //     img.style.width = currentWidth * 0.9 + 'px'
+  //   }
+
+  //   removeImage = () => {
+  //     const img = document.querySelector('img:last-of-type')
+  //     img.remove()
+  //   }
+
+  getRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16)
+
+  getContrastingColor = hexColor => {
+    hexColor = hexColor.replace('#', '')
+
+    let r = parseInt(hexColor.substring(0, 2), 16)
+    let g = parseInt(hexColor.substring(2, 4), 16)
+    let b = parseInt(hexColor.substring(4, 6), 16)
+
+    let yiq = (r * 299 + g * 587 + b * 114) / 1000
+
+    return yiq >= 128 ? 'black' : 'white'
+  }
+
+  changeColor = name => {
+    const newBackgroundColor = this.getRandomColor()
+    const newContrastColor = this.getContrastingColor(newBackgroundColor)
+    this.setState({
+      [name]: { backgroundColor: newBackgroundColor, color: newContrastColor }
+    })
+  }
+
   render () {
     return (
       <>
-        <p id='first-element'>
+        <p
+          id='first-element'
+          style={{ backgroundColor: this.state.firstElement.backgroundColor, color: this.state.firstElement.color }}
+          onClick={() => this.changeColor('firstElement')}
+        >
           Дата народження: 17.10.2003, місце народження: м. Івано-Франківськ,
           Україна
         </p>
-        <p id='second-element'>
+        <p
+          id='second-element'
+          style={{ backgroundColor: this.state.secondElement.backgroundColor, color: this.state.secondElement.color }}
+          onClick={() => this.changeColor('secondElement')}
+        >
           Освіта:
           <br />
           УФМЛ КНУ ім. Т. Шевченка, м. Київ (середня освіта); НТУУ "КПІ <br />
@@ -34,14 +97,16 @@ class Content extends React.Component {
           регіону Галичина. Назване 1962 року на честь Івана Франка.
         </p>
 
-        <Image />
+        <a id='image-container' href='https://www.mvk.if.ua/'>
+          <Image />
+        </a>
 
-        <div>
-          <button onclick='addImage()'>Додати</button>
-          <button onclick='enlargeImage()'>Збільшити</button>
-          <button onclick='shrinkImage()'>Зменшити</button>
-          <button onclick='removeImage()'>Видалити</button>
-        </div>
+        {/* <div>
+          <button onClick={this.addImage}>Додати</button>
+          <button onClick={this.enlargeImage}>Збільшити</button>
+          <button onClick={this.shrinkImage}>Зменшити</button>
+          <button onClick={this.removeImage}>Видалити</button>
+        </div> */}
       </>
     )
   }
