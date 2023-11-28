@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.6b96c1f9.css","mappings":"AAAA,KACE,cACF,CAEA,OACE,cACF,CAEA,IACE,SACF","sources":["App.css"],"sourcesContent":["body {\n  font-size: 18px;\n}\n\nbutton {\n  font-size: 16px;\n}\n\nimg {\n  width: 30%;\n}\n"],"names":[],"sourceRoot":""}
