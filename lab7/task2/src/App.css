@@ -1,1 +1,35 @@
+.goods-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+}
 
+.goods-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.goods-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.goods-card p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #666;
+}
+
+.goods-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
