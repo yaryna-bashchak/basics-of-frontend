@@ -2,6 +2,10 @@ import React from 'react'
 import Image from './Image'
 
 class Content extends React.Component {
+  initialImage = {
+    width: 300
+  }
+
   state = {
     firstElement: {
       backgroundColor: '#FFFFFF',
@@ -10,30 +14,52 @@ class Content extends React.Component {
     secondElement: {
       backgroundColor: '#FFFFFF',
       color: '#000000'
-    }
+    },
+    images: [this.initialImage]
   }
 
-  //   addImage = () => {
-  //     const imageContainer = document.getElementById('image-container')
-  //     imageContainer.appendChild(<Image />)
-  //   }
+  addImage = () => {
+    const newImage = this.initialImage
+    this.setState(state => ({
+      images: [...state.images, newImage]
+    }))
+  }
 
-  //   enlargeImage = () => {
-  //     const img = document.querySelector('img:last-of-type')
-  //     const currentWidth = img.width
-  //     img.style.width = currentWidth * 1.1 + 'px'
-  //   }
+  enlargeImage = () => {
+    this.setState(state => {
+      const lastImageIndex = state.images.length - 1;
+      const lastImage = state.images[lastImageIndex];
+      const enlargedImage = { ...lastImage, width: lastImage.width * 1.1 };
+  
+      return {
+        images: [
+          ...state.images.slice(0, lastImageIndex),
+          enlargedImage
+        ]
+      };
+    })
+  }
 
-  //   shrinkImage = () => {
-  //     const img = document.querySelector('img:last-of-type')
-  //     const currentWidth = img.width
-  //     img.style.width = currentWidth * 0.9 + 'px'
-  //   }
+  shrinkImage = () => {
+    this.setState(state => {
+      const lastImageIndex = state.images.length - 1;
+      const lastImage = state.images[lastImageIndex];
+      const shrinkedImage = { ...lastImage, width: lastImage.width * 0.9 };
+  
+      return {
+        images: [
+          ...state.images.slice(0, lastImageIndex),
+          shrinkedImage
+        ]
+      };
+    })
+  }
 
-  //   removeImage = () => {
-  //     const img = document.querySelector('img:last-of-type')
-  //     img.remove()
-  //   }
+  removeImage = () => {
+    this.setState(state => ({
+      images: state.images.slice(0, -1)
+    }))
+  }
 
   getRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16)
 
@@ -62,7 +88,10 @@ class Content extends React.Component {
       <>
         <p
           id='first-element'
-          style={{ backgroundColor: this.state.firstElement.backgroundColor, color: this.state.firstElement.color }}
+          style={{
+            backgroundColor: this.state.firstElement.backgroundColor,
+            color: this.state.firstElement.color
+          }}
           onClick={() => this.changeColor('firstElement')}
         >
           Дата народження: 17.10.2003, місце народження: м. Івано-Франківськ,
@@ -70,7 +99,10 @@ class Content extends React.Component {
         </p>
         <p
           id='second-element'
-          style={{ backgroundColor: this.state.secondElement.backgroundColor, color: this.state.secondElement.color }}
+          style={{
+            backgroundColor: this.state.secondElement.backgroundColor,
+            color: this.state.secondElement.color
+          }}
           onClick={() => this.changeColor('secondElement')}
         >
           Освіта:
@@ -98,15 +130,17 @@ class Content extends React.Component {
         </p>
 
         <a id='image-container' href='https://www.mvk.if.ua/'>
-          <Image />
+          {this.state.images.map((img, index) => (
+            <Image key={index} style={{ width: img.width }} />
+          ))}
         </a>
 
-        {/* <div>
+        <div>
           <button onClick={this.addImage}>Додати</button>
           <button onClick={this.enlargeImage}>Збільшити</button>
           <button onClick={this.shrinkImage}>Зменшити</button>
           <button onClick={this.removeImage}>Видалити</button>
-        </div> */}
+        </div>
       </>
     )
   }
